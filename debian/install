@@ -1,2 +1,3 @@
 debian/usr.bin.surf     etc/apparmor.d
 debian/surf-gstreamer   etc/apparmor.d/abstractions
+debian/bro.sh		usr/bin
