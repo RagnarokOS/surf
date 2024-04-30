@@ -1,0 +1,22 @@
+Description: Fixes to introduce build hardening
+ This patch modifies the upstream source to introduce build
+ hardening.
+Author: Vasudev Kamath <kamathvasudev@gmail.com>
+Forwarded: not-needed
+
+--- a/config.mk
++++ b/config.mk
+@@ -22,11 +22,11 @@
+ LIBS = $(X11LIB) $(GTKLIB) -lgthread-2.0
+ 
+ # flags
+-CPPFLAGS = -DVERSION=\"$(VERSION)\" -DGCR_API_SUBJECT_TO_CHANGE \
++CPPFLAGS += -DVERSION=\"$(VERSION)\" -DGCR_API_SUBJECT_TO_CHANGE \
+            -DLIBPREFIX=\"$(LIBPREFIX)\" -DWEBEXTDIR=\"$(LIBDIR)\" \
+            -D_DEFAULT_SOURCE
+ SURFCFLAGS = -fPIC $(INCS) $(CPPFLAGS)
+-WEBEXTCFLAGS = -fPIC $(WEBEXTINC)
++WEBEXTCFLAGS = -fPIC $(WEBEXTINC) $(CPPFLAGS)
+ 
+ # compiler
+ #CC = c99

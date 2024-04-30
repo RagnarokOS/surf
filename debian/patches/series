@@ -1,0 +1,7 @@
+2002_hardening_portability_fix.patch
+cross.patch
+terminal.patch
+read.patch
+build_options.patch
+useragent.patch
+Switch-to-webkitgtk-4.1.patch

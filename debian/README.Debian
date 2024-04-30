@@ -1,0 +1,18 @@
+When AppArmor is enabled, the access of files and directories in the
+user's home directory is blocked (with some exceptions that are needed
+for running the browser).
+The reason is that browsers are usually used for accessing the Internet,
+in which case the browser should never attempt to access the user's private
+files. To reduce the impact of potential security problems, the AppArmor
+profile prevents this access.
+
+To whitelist some files/directories so that surf can read and/or write them,
+please amend the override file for the surf AppArmor profile, which is
+located at /etc/apparmor.d/local/usr.bin.surf.
+For example to allow read access to all files in a home directory, add the
+following line:
+
+  @{HOME}/** r,
+
+Then reload the profile with the command:
+  # apparmor_parser -r /etc/apparmor.d/usr.bin.surf

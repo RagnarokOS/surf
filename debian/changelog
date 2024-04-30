@@ -1,0 +1,441 @@
+surf (2.1+git20221016-99ragnarok01) stable; urgency=medium
+
+  * Begin maintaining our own Surf package.
+
+ -- Ian LeCorbeau <I-LeCorbeau@protonmail.com>  Tue, 30 Apr 2024 11:37:33 -0400
+
+surf (2.1+git20221016-4) unstable; urgency=medium
+
+  * Bump version of test dependency apparmor-profiles-extra.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Fri, 23 Dec 2022 12:35:07 +0100
+
+surf (2.1+git20221016-3) unstable; urgency=medium
+
+  * Sync gstreamer AppArmor profile from apparmor-profiles-extra 1.35.
+  * Bump Standards-Version to 4.6.2.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Thu, 22 Dec 2022 13:30:00 +0100
+
+surf (2.1+git20221016-2) unstable; urgency=medium
+
+  * Set PREFIX also during build, so the correct plugin directory is searched.
+    Thanks to vs63k74cz10x2mk1@fuwamofu.com for the patch. (Closes: #1024891)
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sun, 27 Nov 2022 17:29:00 +0100
+
+surf (2.1+git20221016-1) unstable; urgency=medium
+
+  * New upstream snapshot.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sat, 22 Oct 2022 18:30:43 +0200
+
+surf (2.1+git20220504-2) unstable; urgency=medium
+
+  [ Jeremy Bicha ]
+  * Add patch to build with webkit2gtk 4.1 instead of 4.0.
+  * Build-Depend on libwebkit2gtk-4.1-dev. (Closes: #1018297)
+
+  [ Reiner Herrmann ]
+  * Minor adjustments to AppArmor profile.
+  * Bump copyright year.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Mon, 29 Aug 2022 19:59:45 +0200
+
+surf (2.1+git20220504-1) unstable; urgency=medium
+
+  * New upstream snapshot.
+  * Bump Standards-Version to 4.6.1.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sat, 04 Jun 2022 21:15:54 +0200
+
+surf (2.1+git20210719-2) unstable; urgency=medium
+
+  * Increase timeout in autopkgtest and let it fail more verbosely.
+    (Closes: #1006459)
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Fri, 25 Feb 2022 23:29:59 +0100
+
+surf (2.1+git20210719-1) unstable; urgency=medium
+
+  * New upstream snapshot.
+  * Bump Standards-Version to 4.6.0.
+  * Drop SURF_USERAGENT environment variable, which has no effect.
+    (Closes: #992418)
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sat, 08 Jan 2022 14:38:30 +0100
+
+surf (2.0+git20201107-2) unstable; urgency=medium
+
+  * Sync surf-gstreamer AppArmor abstraction with apparmor-profiles-extra.
+    (Closes: #986309)
+  * Add version restriction to apparmor-profiles-extra test dependency.
+    (Closes: #986310)
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sat, 03 Apr 2021 00:00:18 +0200
+
+surf (2.0+git20201107-1) unstable; urgency=medium
+
+  * New upstream snapshot.
+  * Refresh patches.
+  * New build-dependency: libglib2.0-dev.
+  * Bump Standards-Version to 4.5.1.
+  * Update watch file format to version 4.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Tue, 17 Nov 2020 14:48:44 +0100
+
+surf (2.0+git20190208-3) unstable; urgency=medium
+
+  * Bump debhelper compat level to 13.
+  * Drop --as-needed linker flag, as it's enabled by default.
+  * Mark AppArmor autopkgtest as superficial.
+  * Add autopkgtest that tests HTTP file retrieval.
+  * Update Vcs-* URLs.
+  * AppArmor: allow file_lock in local webkitgtk directory.
+  * Prevent displaying of build options to workaround blhc false positive.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sat, 29 Aug 2020 16:47:26 +0200
+
+surf (2.0+git20190208-2) unstable; urgency=medium
+
+  * Update path to st binary in AppArmor profile.
+    The stterm package renamed the stterm binary to st and stterm is now
+    only a symlink, which caused AppArmor to prevent starting st.
+  * Bump Standards-Version to 4.5.0.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Thu, 20 Feb 2020 18:38:02 +0100
+
+surf (2.0+git20190208-1) unstable; urgency=medium
+
+  * New upstream snapshot.
+    - refresh patches
+  * AppArmor profile changes:
+    - include gnome abstraction (Closes: #946784)
+    - include mesa abstraction for it's shader cache
+    - document behavior when AppArmor is enabled and how to change it
+      in README.Debian (Closes: #926393)
+  * Bump Standards-Version to 4.4.1.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sun, 12 Jan 2020 16:49:48 +0100
+
+surf (2.0+git20181009-4) unstable; urgency=medium
+
+  [ Leo Singer ]
+  * AppArmor: allow access to publicsuffix data. (Closes: #919535)
+
+  [ Reiner Herrmann ]
+  * AppArmor:
+    - allow surf to create ~/.cache directory. (Closes: #919534)
+    - include abstractions/video and allow reading additional sys file.
+      (Closes: #919536)
+    - allow site-specific additions and overrides.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sun, 27 Jan 2019 12:52:31 +0100
+
+surf (2.0+git20181009-3) unstable; urgency=medium
+
+  * Fix path pattern for usrmerged paths in AppArmor profile.
+    Thanks to Leo Singer for the report and the patch. (Closes: #918926)
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Wed, 16 Jan 2019 20:47:36 +0100
+
+surf (2.0+git20181009-2) unstable; urgency=medium
+
+  * Allow usrmerged paths in AppArmor profile. (Closes: #918926)
+  * Fix keeping the download window open when using dash.
+  * Bump Standards-Version to 4.3.0.
+    - Declare that debian/rules does not require root
+  * Use new debhelper-compat dependency instead of d/compat and bump
+    to version 12.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sat, 12 Jan 2019 13:48:59 +0100
+
+surf (2.0+git20181009-1) unstable; urgency=medium
+
+  * New upstream snapshot.
+  * Bump suckless-tools dependency to 43-1, as dmenu 4.7 is required for
+    window embedding.
+  * Drop patch applied upstream and refresh other patches.
+  * Bump Standards-Version to 4.2.1.
+  * Drop suggestion on apparmor-profiles-extra by shippping copy of
+    gstreamer profile. (Closes: #901416, #912026)
+  * Add autopkgtest to ensure that the gstreamer profile copy is up-to-date.
+    Thanks to intrigeri for the suggestion.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Thu, 01 Nov 2018 15:58:49 +0100
+
+surf (2.0+git20180223-1) unstable; urgency=medium
+
+  * New upstream snapshot.
+  * Add new build dependency: libgcr-3-dev.
+  * Update apparmor profile to whitelist additional files. (Closes: #895593)
+  * Refresh patches and drop obsolete one.
+  * Move packaging VCS to salsa.
+  * Bump Standards-Version to 4.1.4.
+  * Update http URLs to https.
+  * Add upstream metadata file.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Fri, 27 Apr 2018 21:46:10 +0200
+
+surf (2.0-5) unstable; urgency=medium
+
+  * Allow executing surf in apparmor profile to allow opening new windows.
+  * Bump Standards-Version to 4.1.2.
+  * Bump debhelper compatibility/dependency to 11.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Mon, 18 Dec 2017 22:34:26 +0100
+
+surf (2.0-4) unstable; urgency=medium
+
+  * Bump Standards-Version to 4.1.1; no changes required.
+  * Call x-terminal-emulator instead of hardcoded stterm.
+  * Loosen run-time dependencies into recommendations. (Closes: #878372)
+  * Install apparmor profile.
+  * Switch watch url to https.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sat, 21 Oct 2017 00:42:09 +0200
+
+surf (2.0-3) unstable; urgency=low
+
+  [ Reiner Herrmann ]
+  * Bump Standards-Version to 4.0.1; no changes required.
+
+  [ Helmut Grohne ]
+  * Fix cross building by allowing overriding of used pkg-config.
+    (Closes: #870584)
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sun, 06 Aug 2017 13:52:42 +0200
+
+surf (2.0-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sun, 18 Jun 2017 13:53:10 +0200
+
+surf (2.0-1) experimental; urgency=low
+
+  * New upstream release.
+    + uses webkit2gtk instead of webkitgtk (LP: #1588150)
+    + fixes 3rd-party cookie handling (Closes: #833321)
+  * Change webkit build dependency to libwebkit2gtk-4.0-dev.
+  * Drop patches applied upstream and refresh other ones.
+  * Update to debhelper compat level 10.
+    + drop --parallel from d/rules, which is now default
+  * Drop ancient NEWS.Debian file.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Fri, 14 Apr 2017 21:15:34 +0200
+
+surf (0.7-2) unstable; urgency=low
+
+  [ Reiner Herrmann ]
+  * Bump Standards-Version to 3.9.8.
+  * Use https in Vcs-Git.
+  * Enable strict SSL to prevent MitM attacks. (LP: #1541109)
+
+  [ Dmitry Bogatov ]
+  * Honour HOME/USER variables while searching for home dir. (Closes: #825397)
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sun, 29 May 2016 13:02:53 +0200
+
+surf (0.7-1) unstable; urgency=low
+
+  * New upstream release.
+  * New maintainer (Closes: #777064).
+  * Port to GTK+ 3.0 (Closes: #790215).
+  * Bump Standards-Version to 3.9.6.
+  * Switch back to dh-style packaging.
+    + enable all hardening flags
+    + pass --as-needed to linker
+  * Update patches for new upstream release.
+  * debian/copyright: Move license to stand-alone paragraph.
+  * debian/gbp.conf: Rename deprecated fields and reorder.
+
+ -- Reiner Herrmann <reiner@reiner-h.de>  Sat, 09 Jan 2016 22:14:48 +0100
+
+surf (0.6-1) unstable; urgency=low
+
+  [ Vasudev Kamath ]
+  * Imported new upstream release 0.6.
+    Closes: bug#611118,#611872,#611294, Thanks to Jonathan Neider.
+  * Converted to CDBS packaging.
+     + Moved build-depends to rules file
+     + Moved depends to rules file and removed x-terminal-emulator and wget
+       from depends, upstream now uses curl and stterm which is now
+       introduced as Depends.
+     + Bumped Standards-Version to 3.9.4 (no changes needed).
+     + Removed ;a=summary from the URL in Vcs-Browser field.
+     + Improved short description of package.
+  * Updated copyright holders for upstream source.
+  * Introduced debian/copyright_hints.
+  * Renamed patches to follow micro guidelines described in
+    debian/patches/README.
+  * Replaced x-terminal-emulator with stterm as upstream switched from
+    xterm to st in 2003_replace_st_with_stterm.patch.
+  * Update 2002_hardening_portability_fix.patch to include CPPFLAGS in
+    upstream compilation rules.
+  * Updated the copyright year on debian folder for me to 2012-2013.
+  * Bump Standards-Version to 3.9.5.
+  * Upload to unstable.
+
+ -- Vasudev Kamath <kamathvasudev@gmail.com>  Wed, 05 Feb 2014 15:19:07 +0530
+
+surf (0.5-1) experimental; urgency=low
+
+  * Imported Upstream version 0.5
+  * debian/patches:
+    + Deleted X11.diff from series file as it is merged in the upstrea
+    + Deleted surf_0.4.1_mkdir_fix.patch as the changes done by this patch
+      are merged in upstream
+    + Refreshed the dpkg-buildflags.patch as there was a modification in
+      upstream supplied config.mk
+    + Added replace_xterm_with_x-terminal-emulator.patch to replace xterm
+      with x-terminal-emulator command.
+  * debian/rules:
+    + Removed lines which was including /usr/share/dpkg/buildflags.mk and
+      exporting CPPFLAGS CFLAGS and LDFLAGS. Since package is using compat
+      level 9 this should be done automatically by debhelper
+  * Set debian/compat version to 9
+  * debian/NEWS:
+    + Added information on how SSL certificate verification success or failure
+      is indicated by this new release (Closes: #684173).
+  * debian/control:
+    + Package now depends on xterm | x-terminal-emulator instead of only xterm
+      (Closes: #683851)
+  * Removed debian/source/options file as the compression-level=9 and
+    compression=gzip are currently default options
+
+ -- Vasudev Kamath <kamathvasudev@gmail.com>  Tue, 18 Sep 2012 19:42:37 +0530
+
+surf (0.4.1-8) unstable; urgency=low
+
+  * debian/copyright:
+    + Format URI now confirms Debian copyright-format 1.0
+    + Added myself to the copyright holders of debian directory
+  * debian/control
+    + Increased minimum version of debhelper required to 9
+    + Bumped Standards-Version to 3.9.3. This did not require any
+      changes to package source.
+
+ -- Vasudev Kamath <kamathvasudev@gmail.com>  Sun, 17 Jun 2012 20:39:35 +0530
+
+surf (0.4.1-7) unstable; urgency=low
+
+  * New Maintainer (Closes: #647091)
+  * debian/control:
+    + Added myself as maintainer of package.
+  * debian/patches:
+    + Added surf_0.4.1_mkdir_fix.patch provided by Anslem Grabe to fix the
+      ~/.surf directory permission even if the directory already exists also
+      patch makes the cookies.txt only user readable.
+    + Removed fix-insecure-permission.patch as the new patch contains the all
+      the changes which was there in this patch.
+    + Removed debian-changes-0.4.1-3 patch
+    + Modified the dpkg-buildflags.patch to remove -Os from CFLAGS to allow
+      DEB_BUILD_OPTIONS=noopt
+    + Added transparent_makefile.patch to allow the command execution in
+      Makefile visible.
+    + Modified X11.diff patch to allow clean application of
+      transparent_makefile.patch
+  * debian/rules:
+    + Overrode dh_clean to remove config.h created by Makefile during build
+
+ -- Vasudev Kamath <kamathvasudev@gmail.com>  Wed, 22 Feb 2012 22:42:59 +0530
+
+surf (0.4.1-6) unstable; urgency=high
+
+  * QA upload.
+  * debian/patches:
+    + Added fix-insecure-permissions.patch to fix world readable cookie jar
+      vulnerability CVE-2012-0842. (Closes: #659296)
+
+ -- Vasudev Kamath <kamathvasudev@gmail.com>  Sat, 11 Feb 2012 00:01:08 +0530
+
+surf (0.4.1-5) unstable; urgency=low
+
+  * QA upload.
+  * Added Debian QA Group as maintainer for package.
+  * debian/control:
+    + Bumped Standards-Version to 3.9.2. This did not require any change to
+      the package source.
+    + Vcs-* fields now point to collab-maint repository
+    + Added Build-Depends: on dpkg-dev (>= 1.16.1) to introduce dpkg-buildflags
+    + In Build-Depends: renamed libwebkit-dev to libwebkitgtk-dev
+      (Closes: #635427)
+    + Added pkg-config to Build-Depends as config.mk is using it.
+  * debian/watch:
+    + Introduced watch file
+  * debian/surf.postinst:
+    + Reduced the update-alternative priority to 30 (Closes: #657646)
+  * debian/patches:
+    + Added dpkg-buildflags.patch to config.mk to make it honour {C,CPP,LD}FLAGS
+      environment variables
+    + Added DEP3 header to X11.diff
+  * debian/rules:
+    + Export {C,CPP,LD}FLAGS environment variables for introducing
+      dpkg-buildflags
+
+ -- Vasudev Kamath <kamathvasudev@gmail.com>  Thu, 02 Feb 2012 22:09:57 +0530
+
+surf (0.4.1-4.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * debian/patches/X11.diff: Added.  Fixed FTBFS.  Closes: #615780.
+
+ -- Bart Martens <bartm@debian.org>  Sun, 02 Oct 2011 20:08:59 +0200
+
+surf (0.4.1-4) unstable; urgency=low
+
+  * Fix "needs to depend on suckless-tools, x11-utils, xterm and wget"
+    <Added deps, thanks Paul> (Closes: #608556)
+
+ -- Kai Hendry <hendry@iki.fi>  Mon, 03 Jan 2011 10:49:20 +0000
+
+surf (0.4.1-3) unstable; urgency=low
+
+  * New maintainer
+
+ -- Kai Hendry <hendry@iki.fi>  Sun, 05 Dec 2010 14:38:31 +0000
+
+surf (0.4.1-2) unstable; urgency=low
+
+  * Updating standards version to 3.9.0.
+  * Switching to source format 3.0 (quilt).
+  * Updating to debhelper version 8.
+  * Updating to standards version 3.9.1.
+
+ -- Daniel Baumann <daniel@debian.org>  Mon, 29 Nov 2010 21:19:05 +0100
+
+surf (0.4.1-1) unstable; urgency=low
+
+  * Merging upstream version 0.4.1.
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 10 Jun 2010 17:24:00 +0200
+
+surf (0.4-1) unstable; urgency=low
+
+  * Adding explicit debian source version 1.0 until switch to 3.0.
+  * Updating year in copyright file.
+  * Updating to standards 3.8.4.
+  * Merging upstream version 0.4.
+  * Updating year in copyright file.
+
+ -- Daniel Baumann <daniel@debian.org>  Tue, 01 Jun 2010 08:07:12 +0200
+
+surf (0.3-1) unstable; urgency=low
+
+  * Merging upstream version 0.3.
+
+ -- Daniel Baumann <daniel@debian.org>  Fri, 30 Oct 2009 17:14:47 +0100
+
+surf (0.2-1) unstable; urgency=low
+
+  * Merging upstream version 0.2.
+  * Sorting depends.
+
+ -- Daniel Baumann <daniel@debian.org>  Sun, 18 Oct 2009 20:35:54 +0200
+
+surf (0.1.2-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Daniel Baumann <daniel@debian.org>  Sun, 13 Sep 2009 10:21:11 +0200

@@ -1,0 +1,16 @@
+Author: Reiner Herrmann <reiner@reiner-h.de>
+Description: Use x-terminal-emulator instead of hardcoded st
+Bug-Debian: https://bugs.debian.org/878372
+Forwarded: not-needed
+
+--- a/config.def.h
++++ b/config.def.h
+@@ -78,7 +78,7 @@
+ 
+ /* DOWNLOAD(URI, referer) */
+ #define DOWNLOAD(u, r) { \
+-        .v = (const char *[]){ "st", "-e", "/bin/sh", "-c",\
++        .v = (const char *[]){ "x-terminal-emulator", "-e", "/bin/sh", "-c",\
+              "curl -g -L -J -O -A \"$1\" -b \"$2\" -c \"$2\"" \
+              " -e \"$3\" \"$4\"; read", \
+              "surf-download", useragent, cookiefile, r, u, NULL \

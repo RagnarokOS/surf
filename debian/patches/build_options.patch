@@ -1,0 +1,17 @@
+Author: Reiner Herrmann <reiner@reiner-h.de>
+Description: don't print build options
+ it triggers a false positive "NONVERBOSE BUILD:" in blhc,
+ because it prints "CC = ..."
+Forwarded: not-needed
+
+--- a/Makefile
++++ b/Makefile
+@@ -10,7 +10,7 @@
+ WOBJ = $(WSRC:.c=.o)
+ WLIB = $(WSRC:.c=.so)
+ 
+-all: options surf $(WLIB)
++all: surf $(WLIB)
+ 
+ options:
+ 	@echo surf build options:

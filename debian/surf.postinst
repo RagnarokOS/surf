@@ -1,0 +1,22 @@
+#!/bin/sh
+
+set -e
+
+case "${1}" in
+	configure|abort-upgrade)
+		update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/bin/surf 30 --slave /usr/share/man/man1/x-www-browser.1.gz x-www-browser.1.gz /usr/share/man/man1/surf.1.gz
+		;;
+
+	abort-remove|abort-deconfigure)
+
+		;;
+
+	*)
+		echo "postinst called with unknown argument \`${1}'" >&2
+		exit 1
+		;;
+esac
+
+#DEBHELPER#
+
+exit 0

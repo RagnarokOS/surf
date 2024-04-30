@@ -1,0 +1,29 @@
+Source: surf
+Section: web
+Priority: optional
+Build-Depends: debhelper-compat (= 13),
+               dh-apparmor,
+               libgcr-3-dev,
+               libglib2.0-dev,
+               libgtk-3-dev,
+               libwebkit2gtk-4.1-dev,
+               pkg-config
+Standards-Version: 4.6.2
+Maintainer: Ian LeCorbeau <I-LeCorbeau@protonmail.com>
+XSBC-Original-Maintainer: Reiner Herrmann <reiner@reiner-h.de>
+Homepage: https://surf.suckless.org
+Vcs-Git: https://github.com/RagnarokOS/surf.git
+Vcs-Browser: https://github.com/RagnarokOS/surf
+Rules-Requires-Root: no
+
+Package: surf
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Recommends: x11-utils
+Suggests: apparmor
+Provides: www-browser
+Description: Simple web browser by suckless community
+ surf is a simple web browser based on WebKit/GTK+. It is able to display
+ websites and follow links. It supports the XEmbed protocol which makes it
+ possible to embed it in another application. Furthermore, one can point surf to
+ another URI by setting its XProperties.

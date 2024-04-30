@@ -1,0 +1,17 @@
+Author: Reiner Herrmann <reiner@reiner-h.de>
+Description: drop SURF_USERAGENT from manpage as it has no effect
+Bug-Debian: https://bugs.debian.org/992418
+
+--- a/surf.1
++++ b/surf.1
+@@ -286,10 +286,6 @@
+ .B P
+ using proxy
+ .SH ENVIRONMENT
+-.B SURF_USERAGENT
+-If this variable is set upon startup, surf will use it as the
+-.I useragent
+-string.
+ .TP
+ .B http_proxy
+ If this variable is set and not empty upon startup, surf will use it as the http proxy.

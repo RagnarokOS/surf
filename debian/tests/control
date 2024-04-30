@@ -1,0 +1,11 @@
+Test-Command: cmp /etc/apparmor.d/abstractions/surf-gstreamer /etc/apparmor.d/abstractions/gstreamer
+Restrictions: superficial
+Depends: @, apparmor-profiles-extra (>= 1.35), diffutils
+
+Test-Command: timeout -v 5m xvfb-run debian/tests/test_http.py
+Restrictions: allow-stderr
+Depends: @, suckless-tools, python3, xdotool, xvkbd, xvfb, x11-utils, xauth
+
+Test-Command: timeout -v 5m xvfb-run debian/tests/test_text.sh
+Restrictions: allow-stderr
+Depends: @, autopkgtest, xvfb, xauth, xdotool, scrot, tesseract-ocr, diffutils

@@ -1,0 +1,70 @@
+#include <tunables/global>
+
+/usr/bin/surf {
+  #include <abstractions/X>
+  #include <abstractions/audio>
+  #include <abstractions/base>
+  #include <abstractions/enchant>
+  #include <abstractions/dconf>
+  #include <abstractions/fonts>
+  #include <abstractions/freedesktop.org>
+  #include <abstractions/gnome>
+  #include <abstractions/mesa>
+  #include <abstractions/nameservice>
+  #include <abstractions/ssl_certs>
+  #include <abstractions/surf-gstreamer>
+  #include <abstractions/video>
+
+  owner @{HOME}/.surf/ w,
+  owner @{HOME}/.surf/** rwkl,
+  owner @{HOME}/.cache/ rw,
+
+  owner @{PROC}/@{pid}/cgroup r,
+  owner @{PROC}/@{pid}/cmdline r,
+  owner @{PROC}/@{pid}/fd/ r,
+  owner @{PROC}/@{pid}/{smaps,statm} r,
+  @{PROC}/zoneinfo r,
+
+  /dev/ r,
+  /sys/devices/pci[0-9]*/** r,
+  /sys/devices/platform/soc/soc:gpu/* r,
+  /usr/share/glib-2.0/schemas/gschemas.compiled r,
+
+  /usr/share/doc/** r,
+
+  # WebKit
+  /usr/lib/@{multiarch}/webkit2gtk-4.1/WebKit*Process ix,
+  /{dev,run}/shm/WK2SharedMemory.* rw,
+  /var/tmp/WebKit-Media-* rw,
+  /usr/share/publicsuffix/public_suffix_list.{dat,dafsa} r,
+  owner @{HOME}/.local/share/webkitgtk/ w,
+  owner @{HOME}/.local/share/webkitgtk/** rwk,
+  owner @{HOME}/.cache/webkitgtk/ w,
+  owner @{HOME}/.cache/webkitgtk/** rwk,
+
+  # fontconfig
+  /usr/share/fontconfig/conf.avail/ r,
+
+  # dconf
+  owner @{HOME}/.cache/dconf/user rw,
+  owner /run/user/*/dconf/user rw,
+
+
+  /usr/bin/surf ix,
+  /{usr/,}bin/dash ix,
+  /{usr/,}bin/sed ix,
+  /usr/bin/dmenu ix,
+  /usr/bin/printf ix,
+  /usr/bin/xargs ix,
+  /usr/bin/xprop ix,
+
+  # for downloading files
+  /dev/ptmx rw,
+  /dev/pts/* rw,
+  /usr/bin/st ix,
+  # unconfined because it is called in (and downloading to) the cwd
+  /usr/bin/curl Ux,
+
+  # Site-specific additions and overrides. See local/README for details.
+  #include <local/usr.bin.surf>
+}

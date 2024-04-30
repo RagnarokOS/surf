@@ -1,0 +1,14 @@
+Author: Reiner Herrmann <reiner@reiner-h.de>
+Description: dash requires an argument to read
+
+--- a/config.def.h
++++ b/config.def.h
+@@ -80,7 +80,7 @@
+ #define DOWNLOAD(u, r) { \
+         .v = (const char *[]){ "x-terminal-emulator", "-e", "/bin/sh", "-c",\
+              "curl -g -L -J -O -A \"$1\" -b \"$2\" -c \"$2\"" \
+-             " -e \"$3\" \"$4\"; read", \
++             " -e \"$3\" \"$4\"; read input", \
+              "surf-download", useragent, cookiefile, r, u, NULL \
+         } \
+ }

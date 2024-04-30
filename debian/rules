@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export CC=clang
+export DEB_CFLAGS_MAINT_APPEND = -flto=thin
+export DEB_LDFLAGS_MAINT_APPEND = -flto=thin -Wl,-O2
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	dh_auto_build -- PREFIX=/usr
+
+override_dh_auto_install:
+	dh_auto_install -- PREFIX=/usr
+	dh_apparmor --profile-name=usr.bin.surf
